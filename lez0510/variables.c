@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+int var() {
     // Dichiarazione delle variabili
     int var1, var3;
     int var2;
