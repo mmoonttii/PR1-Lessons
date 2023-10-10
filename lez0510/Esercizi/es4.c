@@ -8,7 +8,7 @@ int es4(){
     printf("\nGatti per fila: ");
     scanf("%d", &gattiPerFila);
 
-    file = gatti/gattiPerFila;
+    file = gatti / gattiPerFila;
     resto = gatti % gattiPerFila;
 
     printf("file: %d, resto: %d", file, resto);

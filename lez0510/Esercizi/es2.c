@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int es2(){
-    int a, b,c; // Dichiarazione variabili
+    // Dichiarazione variabili
+    int a, b;
+    int aux;
 
     // Acquisizione valori
     printf("Inserire valore a: ");
@@ -13,9 +15,9 @@ int es2(){
     printf("\na: %d, b: %d", a, b);
 
     // Utilizzando la var c di appoggio scambio i valori delle var
-    c = a;
+    aux = a;
     a = b;
-    b = c;
+    b = aux;
 
     // Stampo i valori dopo
     printf("\na: %d, b: %d", a, b);

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define FATTORE_CONVERSIONE 1.8
 
 int es5(){
     float celsius, fahrenheit;
@@ -6,9 +7,9 @@ int es5(){
     printf("Inserisci C°: ");
     scanf("%f", &celsius);
 
-    fahrenheit = (celsius*1.8) + 32;
+    fahrenheit = (celsius*FATTORE_CONVERSIONE) + 32;
 
-    celsius = (fahrenheit - 32)/1.8;
+    celsius = (fahrenheit - 32)/FATTORE_CONVERSIONE;
 
     printf("\nF°: %.2f", fahrenheit);
     printf("\nProva C°: %.2f", celsius);
