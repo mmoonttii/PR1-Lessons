@@ -7,4 +7,6 @@ add_executable(lez1010 cast.c
         scanf.c
         char.c
         Esercizi/es3.c
-        Esercizi/es4.c)
+        Esercizi/es4.c
+        Esercizi/es7.c
+        Esercizi/es11.c)

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int es4(){
 
     int int1 = 7, int2 = 9;
     float float1 = 3.6, float2 = 9.7;
