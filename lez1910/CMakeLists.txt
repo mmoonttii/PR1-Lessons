@@ -9,4 +9,8 @@ add_executable(lez1910 main.c
         esercizi/es8lez4.c
         esercizi/es1.c
         esercizi/es2.c
-        esercizi/es3.c)
+        esercizi/es3.c
+        es4.c
+        esercizi/es9.c)
+
+target_link_libraries(lez1910 m)

@@ -4,7 +4,7 @@
 #define VOTO_MAX 10
 #define VOTO_MIN 2
 
-int main(){
+int es1(){
     // varibaile vot
     int voto;
 

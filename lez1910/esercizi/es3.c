@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int es3(){
     int a, b, c;
 
     printf("Inserisci a: ");
