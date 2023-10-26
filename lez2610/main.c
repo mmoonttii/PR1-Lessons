@@ -14,6 +14,7 @@
 #define RADIUS_MIN 1
 #define MULTIPLIER 100
 
+// Definisco le operazioni
 #define CIRCONFERENZA 'c'
 #define DIAMETRO 'd'
 #define VOLUME 'v'
@@ -60,41 +61,39 @@ int main() {
         printf("Il raggio della sfera è %f", radius);
     }
 
-    /* Ottenuto il raggio chiedere all'utente quale misura calcolare c circonferenza, d diametro, v volume, s superficie,
-     * a circonferenza approssimata per difetto. Gestire approssimazione per eccesso.
-     * Effettuare queste operazione in uno switch-case.
+    /* Ottenuto il raggio chiedere all'utente quale misura calcolare
+     * c circonferenza, d diametro, v volume, s superficie, a circonferenza approssimata per difetto.
+     * Gestire approssimazione per eccesso. Effettuare queste operazione in uno switch-case.
      * Gestire l'eventuale input non valido, permettendo di ripetere la scelta
      */
 
     do {
         printf("\nQuale misura desideri calcolare? ");
-        printf("\n- [c] circonferenza c = 2 * pi * r");
-        printf("\n- [d] diametro d = 2 * r");
-        printf("\n- [v] volume v = (4 * pi * (r ^ 3)) / 3");
-        printf("\n- [s] superficie s = 4 * pi * r ^ 2");
-        printf("\n- [a] circonferenza approssimata");
+        printf("\n- [%c] circonferenza c = 2 * pi * r", CIRCONFERENZA);
+        printf("\n- [%c] diametro d = 2 * r", DIAMETRO);
+        printf("\n- [%c] volume v = (4 * pi * (r ^ 3)) / 3", VOLUME);
+        printf("\n- [%c] superficie s = 4 * pi * r ^ 2", SUPERFICIE);
+        printf("\n- [%c] circonferenza approssimata", CIRC_APPROX);
         printf("\nInserire valore corrispondente:");
         scanf(" %c", &op);
+
+        exit = false;
 
         switch (op) {
             case CIRCONFERENZA:
                 ans = 2 * M_PI * radius;
-                exit = false;
                 break;
 
             case DIAMETRO:
                 ans = 2 * radius;
-                exit = false;
                 break;
 
             case VOLUME:
-                ans = (float)(4 * M_PI * powf(radius, 3)) / 3;
-                exit = false;
+                ans = (float)(4 * M_PI * powf(radius, 3) / 3);
                 break;
 
             case SUPERFICIE:
                 ans = 4 * M_PI * powf(radius, 2);
-                exit = false;
                 break;
 
             case CIRC_APPROX:
@@ -111,11 +110,10 @@ int main() {
                 } else {
                     ans = (int)ans + 1;
                 }
-
-                exit = false;
                 break;
 
             default:
+                printf("Il carattere inserito non è una delle opzioni disponibili");
                 exit = true;
                 break;
 
