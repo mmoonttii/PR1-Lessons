@@ -9,4 +9,7 @@ add_executable(lez2410 while.c
         Esercizi/es3.c
         Esercizi/es4.c
         Esercizi/es5.c
+        Esercizi/es6.c
+        Esercizi/es7.c
+        Esercizi/es8.c
 )
