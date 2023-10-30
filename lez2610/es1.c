@@ -21,7 +21,7 @@
 #define SUPERFICIE 's'
 #define CIRC_APPROX 'a'
 
-int main() {
+int es1() {
 
     // Init variabili
     int aux, approx; // aux: per definire il booleano
