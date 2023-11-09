@@ -7,16 +7,17 @@
 #include <time.h>
 
 #define LEN 15
-#define MAX 10
+#define MAX 15
+#define MIN 5
 
-int main(){
+int es1(){
 	int i;
 	int array[LEN];
 
 	srand(time(NULL));
 
 	for (i = 0; i < LEN; i++){
-		array[i] = rand() % MAX;
+		array[i] = MIN - rand() % (MAX - MIN + 1);
 		printf("%d\n", array[i]);
 	}
 
