@@ -27,10 +27,8 @@ int es6(){
 	printf("Inserire numero: ");
 	scanf("%d", &userIn);
 
-	for (int i = 0; i < LEN; i++) {
-		if (array[i] == userIn){
-			check = true;
-		}
+	for (int i = 0; i < LEN && !check; i++) {
+		check = array[i] == userIn;
 	}
 
 	if (check){

@@ -13,4 +13,6 @@ add_executable(lez0711 for.c
 		Esercizi/es6.c
 		Esercizi/es7.c
 		Esercizi/es8.c
-		Esercizi/es9.c)
+		Esercizi/es9.c
+		Esercizi/es10.c
+		Esercizi/es11.c)
