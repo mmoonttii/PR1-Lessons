@@ -1,0 +1,3 @@
+/Users/monti/CLionProjects/PR1-Lessons/parziale1/cmake-build-debug/CMakeFiles/parziale1.dir
+/Users/monti/CLionProjects/PR1-Lessons/parziale1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/monti/CLionProjects/PR1-Lessons/parziale1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
