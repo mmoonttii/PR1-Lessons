@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define DIM 20
+#define DIM 30
 
 int es8(){
 	char str[DIM + 1];
@@ -40,8 +40,6 @@ int es8(){
 				break;
 			case 'S':
 				str[i] = '5';
-				break;
-			default:
 				break;
 		}
 	}

@@ -7,7 +7,7 @@
 #define NUM_STR 4
 #define DIM 20
 
-int main(){
+int es7(){
 
 	char str[NUM_STR][DIM];
 	int maggiore = 0;
