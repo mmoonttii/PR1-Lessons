@@ -54,25 +54,24 @@ int main() {
 
             scanf(" %c", &puntataChoice);
 
+            exitChoice = false;
+
             switch (puntataChoice) {
                 // Gestisco la scelta della puntata con uno switch che riceve la scelta dell'utente
                 // e restituisce la puntata basandosi sul denaro rimanente
                 case QUARTO:
                     puntataSoldi = portafogli * 0.25;
                     portafogli -= puntataSoldi;
-                    exitChoice = false;
                     break;
 
                 case META:
                     puntataSoldi = portafogli * 0.5;
                     portafogli -= puntataSoldi;
-                    exitChoice = false;
                     break;
 
                 case ALL:
                     puntataSoldi = portafogli;
                     portafogli -= puntataSoldi;
-                    exitChoice = false;
                     break;
 
                 // In caso il carattere inserito non sia uno di quelli richiesti non permetto l'uscita dal loop
