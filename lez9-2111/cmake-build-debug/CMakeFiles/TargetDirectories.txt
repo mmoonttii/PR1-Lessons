@@ -1,0 +1,3 @@
+/home/monti/CLionProjects/PR1-Lessons/lez9-2111/cmake-build-debug/CMakeFiles/lez9_2111.dir
+/home/monti/CLionProjects/PR1-Lessons/lez9-2111/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/monti/CLionProjects/PR1-Lessons/lez9-2111/cmake-build-debug/CMakeFiles/rebuild_cache.dir

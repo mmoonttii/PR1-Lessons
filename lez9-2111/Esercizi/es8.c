@@ -11,9 +11,16 @@
 
 #define R 5
 #define C 5
-float popolaMatrice(int r, int c, float mx)
+void popolaMatrice(int min, int max, int r, int c, float mx[][c]);
+
 int main(){
 	float matrix[R][C];
+
+    popolaMatrice(min, max, r, c, matrix);
     return 0;
 }
 
+void popolaMatrice(int min, int max, int r, int c, float mx[][c]){
+    
+
+}
