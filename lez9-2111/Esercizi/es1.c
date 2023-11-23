@@ -53,7 +53,7 @@ int oorandRange(int min, int max){ // randRange restituisce un numero random com
 
 	return random;
 }
-float floatRandRange(int min, int max, int dec){ // floatRandRange restituisce un numero random compreso tra min e max
+float aafloatRandRange(int min, int max, int dec){ // floatRandRange restituisce un numero random compreso tra min e max
 	int aux;
 	float random;
 	int mult;

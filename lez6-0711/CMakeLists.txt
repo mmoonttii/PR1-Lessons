@@ -5,14 +5,19 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(lez0711 for.c
         arrays.c
-		Esercizi/es1.c
-		Esercizi/es2.c
-		Esercizi/es3.c
-		Esercizi/es4.c
-		Esercizi/es5.c
-		Esercizi/es6.c
-		Esercizi/es7.c
-		Esercizi/es8.c
-		Esercizi/es9.c
-		Esercizi/es10.c
-		Esercizi/es11.c)
+		EserciziA/es1.c
+		EserciziA/es2.c
+		EserciziA/es3.c
+		EserciziA/es4.c
+		EserciziA/es5.c
+		EserciziA/es6.c
+		EserciziA/es7.c
+		EserciziA/es8.c
+		EserciziA/es9.c
+		EserciziA/es10.c
+		EserciziA/es11.c
+		EserciziB/es1b.c
+		EserciziB/es2b.c
+		EserciziB/es3b.c
+		EserciziB/es4b.cu
+		EserciziB/es4b.c)

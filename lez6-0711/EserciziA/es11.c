@@ -4,10 +4,3 @@
  * essere memorizzato in un array. Supporre che il numero binario possa avere al
  * massimo 20 cifre.
  */
-
-int main(){
-
-
-
-	return 0;
-}
