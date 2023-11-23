@@ -1,4 +1,4 @@
-/* Una subroutine chiede 3 valori all'utente che stampi in output il maggiore dei tre
+﻿/* Una subroutine chiede 3 valori all'utente che stampi in output il maggiore dei tre
  * Una subroutine chidcd 3 valori all'utente e lo restituisce
  * Una subroutine chiede 2 valori all'utente e lo restituisce
  * Implementare la subroutine ai punti 1 e 2 in modo che ricevano un array come parametro
@@ -13,11 +13,11 @@
 
 void printMax(int a, int b, int c); // Calcola il maggiore dei tre numeri e lo stampa
 int calcMax(int a, int b, int c); // Calcola il maggiore dei tre numeri e lo restituisce
-int calcMaxBis(int a, int b); // Calcola il maggiore dei due numeri e lo restituisce
+int maxADue(int a, int b); // Calcola il maggiore dei due numeri e lo restituisce
 int arrMax(int dim, int arr[dim]); // Calcola il maggiore di un array di interi e lo restituisce
 void arrTripleMax(int dim, int arr[dim], int arrMax[DIM_MAX]); // Restituisco un array composto dai tre valori più alti di un altro array
 
-int main() {
+int es1() {
 
 	// Dichiarazione e acquisizione variabili input
 	int a,
@@ -39,7 +39,7 @@ int main() {
 
 	printf("\ncalcMax: %d", calcMax(a, b, c));
 
-	max = calcMaxBis(a, calcMaxBis(b, c));
+	max = maxADue(a, maxADue(b, c));
 
 	printf("\ncalcMaxBis: %d", max);
 
@@ -100,7 +100,7 @@ int calcMax(int a, int b, int c){
 	return max;
 }
 
-int calcMaxBis(int a, int b){
+int maxADue(int a, int b){
 
 	int max = 0;
 
@@ -133,10 +133,15 @@ void arrTripleMax(int dim, int arr[dim], int arrMax[DIM_MAX]){
 
 	for (int i = 0; i < DIM; ++i) {
 		if (arr[i] > arrMax[0]) {
+			arrMax[2] = arrMax[1];
+			arrMax[1] = arrMax[0];
 			arrMax[0] = arr[i];
-		} else if (arr[i] > arrMax[1]) {
+		} else
+		if (arr[i] > arrMax[1]) {
+			arrMax[2] = arrMax[1];
 			arrMax[1] = arr[i];
-		} else if (arr[i] > arrMax[2]) {
+		} else
+		if (arr[i] > arrMax[2]) {
 			arrMax[2] = arr[i];
 		}
 	}
