@@ -8,7 +8,7 @@
 void acquireStr(int dim, char input[dim]);
 void editStr(int dim, char input[dim]);
 
-int main(){
+int es6(){
 	char input[LEN + 1];
 
 	acquireStr(LEN + 1, input);

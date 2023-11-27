@@ -4,4 +4,6 @@ project(es3_2311 C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(es3_2311 es1.c
-		es6.c)
+		es6.c
+        es2.c
+		es3.c)

@@ -52,7 +52,6 @@ int calcolaGiorno (int day, int month, int year){
 	if (bisestile(year)){
 		febDays = 29;
 	}
-
 	switch (month) {
 		case DIC: giorno += 30;
 		case NOV: giorno += 31;
