@@ -18,7 +18,7 @@ void initArr(int min, int max, int dim, int arr[dim]);
 int searchArr(int val, int dim, int arr[dim]);
 int countArr(int val, int dim, int arr[dim]);
 
-int main(){
+int es5(){
 	srand(time(NULL));
 	int arr[DIM],
 		val,
