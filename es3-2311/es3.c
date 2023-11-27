@@ -12,10 +12,11 @@ void strCapsLock(int dim, char string[dim]);
 void strMinus(int dim, char string[dim]);
 void strInvertCaps(int dim, char string[dim]);
 void strInitCaps(int dim, char string[dim]);
-void strSigla(int dim, char string[dim]);
+void strSigla(int dim, char string[dim], char sigla[dim]);
 
-int main(){
-    char string[DIM + 1];
+int es3(){
+    char string[DIM + 1],
+		 sigla[DIM + 1];
 
     printf("Inserisci stringa");
     scanf("%[^\n]30s", string);
@@ -32,11 +33,10 @@ int main(){
     strInitCaps(DIM, string);
     printf("\n%s", string);
 
-    strSigla(DIM, string);
-    printf("\n%s", string);
+    strSigla(DIM, string, sigla);
+    printf("\n%s", sigla);
 
     return 0;
-
 }
 
 void strCapsLock(int dim, char string[dim]){
@@ -80,5 +80,19 @@ void strInitCaps(int dim, char string[dim]){
             }
         }
     }
+}
+
+void strSigla(int dim, char string[dim], char sigla[dim]){
+	int count = 1;
+
+	sigla[0] = string[0];
+	for (int i = 1; i < dim; ++i) {
+		if (string[i - 1] == ' ') {
+			sigla[count] = string[i];
+			count++;
+		}
+	}
+
+	strCapsLock(dim, sigla);
 }
 

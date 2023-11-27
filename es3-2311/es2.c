@@ -9,30 +9,38 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MIN 0
-#define MAX 50
+//#define MIN 0
+//#define MAX 50
 #define ROWS 15
 #define COLS 15
 
-int inputVal();
-int randRange(int min, int max);
-void initMatrix(int r, int c, int matrix[][c]);
-float avgMatrix(int r, int c, int matrix[][c]);
+int inputVal1();
+int randRange1(int min, int max);
+void initMatrix1(int r, int c, int matrix[][c]);
+float avgMatrix1(int r, int c, int matrix[][c]);
 
 int es2(){
     srand(time(NULL));
 
-    int mtx[ROWS][COLS],
-        r,
-        c;
+    int mtx[ROWS][COLS];
+	float avg;
 
-    r = randRange(MIN, MAX);
-    c = randRange(MIN, MAX);
-    initMatrix(r, c, mtx);
 
+
+    initMatrix1(ROWS, COLS, mtx);
+	avg = avgMatrix1(ROWS, COLS, mtx);
+
+	for (int i = 0; i < ROWS; ++i) {
+		for (int j = 0; j < COLS; ++j) {
+			printf("%d\t", mtx[i][j]);
+		}
+		putchar('\n');
+	}
+
+	printf("\n%.3f", avg);
 }
 
-int inputVal(){
+int inputVal1(){
     int user;
 
     do {
@@ -44,7 +52,7 @@ int inputVal(){
 
 }
 
-int randRange(int min, int max){
+int randRange1(int min, int max){
     int random;
 
     random = min + rand()%(max - min + 1);
@@ -52,7 +60,28 @@ int randRange(int min, int max){
     return random;
 }
 
-void initMatrix(int r, int c, int matrix[][c]){
+void initMatrix1(int r, int c, int matrix[][c]){
+	int min = inputVal1();
+	int max = inputVal1();
 
+	for (int i = 0; i < r; ++i) {
+		for (int j = 0; j < c; ++j) {
+			matrix[i][j] = randRange1(min, max);
+		}
+	}
 
+}
+
+float avgMatrix1(int r, int c, int matrix[][c]){
+	int sum = 0;
+	float avg;
+
+	for (int i = 0; i < r; ++i) {
+		for (int j = 0; j < c; ++j) {
+			sum += matrix[i][j];
+		}
+	}
+
+	avg = (float)sum/(r*c);
+	return avg;
 }

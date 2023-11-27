@@ -14,25 +14,52 @@ int main(){
 	} while (dim > 10);
 
 	int
-		matrix[dim][dim],
-		value = 0,
-		col = 0,
-		row = 1,
-		counter = 0;
+		mtx[dim][dim],
+		c = 0, r = 0, // col, rows
+		k = 0;
 
-	while (value < (dim * dim -1)) {
+	while (c < dim * dim){
 
-		for (int c = 0; c <= dim - counter; ++c, ++value) {
-			matrix[counter][c] = value;
+		// Avanza verso dx
+		while (r < dim - c){ // Le celle della riga
+			mtx[r][c] = k;
+			k++;
 		}
+		c--;
+		r++;
 
-		for (int r = counter; r <= dim-counter; ++r, ++value) {
-			matrix[r][dim - counter + 1];
-
+		// Avanza verso il basso
+		while (r <= dim){
+			mtx[r][c] = k;
+			r++;
+			k++;
 		}
+		r--;
+		c--;
 
-		counter++;
+		// Avanza verso sx
+		while (c >= dim - r - 1){
+			mtx[r][c] = k;
+			c--;
+			k++;
+		}
+		c++;
+		r--;
+
+		// Avanza verso alto
+		while (r > c){
+			mtx[r][c] = k;
+			r--;
+			k++;
+		}
+		r++, c++;
 	}
 
+	for (int i = 0; i < dim; ++i) {
+		for (int j = 0; j < dim; ++j) {
+			printf("%d\t", mtx[i][j]);
+		}
+		putchar('\n');
+	}
 	return 0;
 }
