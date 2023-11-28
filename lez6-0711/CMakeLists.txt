@@ -19,5 +19,4 @@ add_executable(lez0711 for.c
 		EserciziB/es1b.c
 		EserciziB/es2b.c
 		EserciziB/es3b.c
-		EserciziB/es4b.cu
 		EserciziB/es4b.c)
