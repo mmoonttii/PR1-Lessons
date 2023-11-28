@@ -11,4 +11,5 @@ add_executable(lez7-1411 matrixes.c
 		Esercizi/es5.c
 		Esercizi/es6.c
 		Esercizi/es7.c
-		Esercizi/es8.c)
+		Esercizi/es8.c
+        Esercizi/es9.c)
