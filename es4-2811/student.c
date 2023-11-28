@@ -85,14 +85,16 @@ int main() {
     return 0;
 }
 
-/** === ESERCIZIO 1 (Acquisizione stringa) [9pt] =======================================================================
- * Scrivere una subroutine acquisisciBirra che si occupi di far inserire all'utente una nuova birra e la inserisca
- * nella posizione k-esima dell'array di stringhe listaBirre, con listaBirre e k passati come parametri.
- * NB: non devono essere presenti birre con lo stesso nome. Se l'utente inserisce una birra già presente, deve essere
- * chiesto nuovamente l'inserimento.
- * HINT: è possibile utilizzare le funzioni della libreria string viste a lezione (SOLO quelle viste a lezione).
- **/
+
 void acquisisciBirra(int dim, int k, char listaBirre[dim][LEN_BIRRA + 1]){
+	/** === ESERCIZIO 1 (Acquisizione stringa) [9pt] =======================================================================
+ 	* Scrivere una subroutine acquisisciBirra che si occupi di far inserire all'utente una nuova birra e la inserisca
+ 	* nella posizione k-esima dell'array di stringhe listaBirre, con listaBirre e k passati come parametri.
+ 	* NB: non devono essere presenti birre con lo stesso nome. Se l'utente inserisce una birra già presente, deve essere
+ 	* chiesto nuovamente l'inserimento.
+ 	* HINT: è possibile utilizzare le funzioni della libreria string viste a lezione (SOLO quelle viste a lezione).
+ 	**/
+
 	char aux[LEN_BIRRA + 1] = {}; // Variabile di appoggio
 	 // Condizione presenza birra
 	bool flag = true;
@@ -122,14 +124,13 @@ void acquisisciBirra(int dim, int k, char listaBirre[dim][LEN_BIRRA + 1]){
 
 }
 
-/** FINE ESERCIZIO 1 */
-
-/** === ESERCIZIO 2 (Generazione casuale) [3pt] ========================================================================
- * Scrivere una subroutine randRangeFloat che si occupi di generare e restituire un numero float generato casualmente
- * e compreso tra min e max; min e max sono due parametri di tipo intero passati alla subroutine.
- * Il numero deve essere generato con due cifre decimali utili (per esempio: 7.15).
- **/
 float randRangeFloat(int min, int max){
+	/** === ESERCIZIO 2 (Generazione casuale) [3pt] ========================================================================
+ 	* Scrivere una subroutine randRangeFloat che si occupi di generare e restituire un numero float generato casualmente
+ 	* e compreso tra min e max; min e max sono due parametri di tipo intero passati alla subroutine.
+ 	* Il numero deve essere generato con due cifre decimali utili (per esempio: 7.15).
+ 	**/
+
 	// Genera un float compreso tra min e max di MULT cifre decimali
 	float random;
 	int mult = pow(10, MULT);
@@ -142,14 +143,14 @@ float randRangeFloat(int min, int max){
 	random /= (float)mult;
 	return random;
 }
-/** FINE ESERCIZIO 2 */
 
-/** === ESERCIZIO 3 (Inserimento dati in una una matrice numerica) [5pt]================================================
- * Scrivere una subroutine generaPrezzi che si occupi di generare, con valori casuali, la matrice con i prezzi delle
- * birre. La subroutine deve ricevere, almeno, i seguenti parametri: la matrice dei prezzi, min (intero), max (intero).
- * HINT: sfruttare opportunamente la subroutine randRangeFloat.
- **/
 void generaPrezzi(int dim, int dWeek, float prezziBirre[dim][D_WEEK], int min, int max){
+	/** === ESERCIZIO 3 (Inserimento dati in una una matrice numerica) [5pt]================================================
+ 	* Scrivere una subroutine generaPrezzi che si occupi di generare, con valori casuali, la matrice con i prezzi delle
+ 	* birre. La subroutine deve ricevere, almeno, i seguenti parametri: la matrice dei prezzi, min (intero), max (intero).
+ 	* HINT: sfruttare opportunamente la subroutine randRangeFloat.
+ 	**/
+
 	// genera un prezzo di MULT cifre decimali compreso tra min e max, ciclando tra tutte le celle di prezziBirre,
 	// usando randRangeFloat
 	for (int i = 0; i < dim; ++i) {
@@ -160,21 +161,19 @@ void generaPrezzi(int dim, int dWeek, float prezziBirre[dim][D_WEEK], int min, i
 
 }
 
-/** FINE ESERCIZIO 3 */
-
-/** === ESERCIZIO 4 (Stampa matrici) [7pt] =============================================================================
- * Scrivere una subroutine stampaBirre che si occupi di stampare in output le birre presenti nella lista di birre,
- * e il loro prezzo giornaliero, con listaBirre e prezziBirre forniti come parametri.
- **/
 void stampaBirre(int dim, char listaBirre[dim][LEN_BIRRA + 1], float prezziBirre[dim][D_WEEK]){
+	/** === ESERCIZIO 4 (Stampa matrici) [7pt] =============================================================================
+ 	* Scrivere una subroutine stampaBirre che si occupi di stampare in output le birre presenti nella lista di birre,
+ 	* e il loro prezzo giornaliero, con listaBirre e prezziBirre forniti come parametri.
+ 	**/
 	// Ciclando tra tutte le celle di listaBirre e prezziBirre, stampa il listino di tutta la settimana
+	printf("\t\t\t\tLun\t\tMar\t\tMer\t\tGio\t\tVen\t\tSab\t\tDom\n");
 	for (int i = 0; i < dim; ++i) {
+		printf("%s\t\t",listaBirre[i]);
+
 		for (int j = 0; j < D_WEEK; ++j) {
-			printf("%s [g %d]: %.2f €\t\t", listaBirre[i], j, prezziBirre[i][j]);
+			printf("%.2f€\t", prezziBirre[i][j]);
 		}
 		putchar('\n');
 	}
-
 }
-
-/** FINE ESERCIZIO 4 */
