@@ -34,7 +34,6 @@ typedef struct {
 typedef enum {S, M, L, XL, XXL, XXXL} Taglia;
 
 Esame acquisisciEsame();
-Data acquisisciData();
 void stampaEsame(Esame esame);
 
 int main(){
@@ -58,22 +57,16 @@ Esame acquisisciEsame() {
 		scanf(" %d", &esame.voto);
 	} while (esame.voto < 0 || esame.voto > 30);
 
-
-
-	return esame;
-}
-
-Data acquisisciData() {
-	Data data;
 	printf("\nInserisci anno: ");
-	scanf(" %d", &data.anno);
+	scanf(" %d", &esame.data.anno);
 
 	printf("\nInserisci mese: ");
-	scanf(" %d", &data.mese);
+	scanf(" %d", &esame.data.mese);
 
 	printf("\nInserisci giorno: ");
-	scanf(" %d", &data.giorno);
-	return data;
+	scanf(" %d", &esame.data.giorno);
+
+	return esame;
 }
 
 void stampaEsame (Esame esame){
