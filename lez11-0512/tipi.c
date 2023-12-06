@@ -23,7 +23,7 @@ typedef struct {
 
 /// Subroutines
 
-int main(){
+int tipi(){
 //	enum seme carta; 1. e creare la var carta con tipo enum seme
 	/// ===========================================================
 	Seme carta = CUORI;

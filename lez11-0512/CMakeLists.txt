@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.26)
-project(lez11_0512 C)
+project(lez10_0512 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(lez11_0512
-		tipi.c
-		Esercizi/es1.c)
+add_executable(lez10_0512
+		Esercizi/es1.c
+		Esercizi/es2.c
+		tipi.c)
