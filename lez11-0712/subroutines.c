@@ -4,7 +4,7 @@ void sumDiff(int x, int y, int *sum, int *diff);
 
 
 
-int main(){
+int subs(){
 	int a = 5, b = 10;
 
 	int sum, diff;
