@@ -7,9 +7,9 @@
 #define DIM 5
 
 void minMax(int *min, int *max, int dim, int vec[]);
+void minMaxMatrix (int *min, int *max, int dim, int vec[]);
 
-
-int main(){
+int es3(){
 	int min, max;
 	int vec[] = {1,2,3, 5,4};
 
@@ -47,7 +47,7 @@ void minMax(int *min, int *max, int a, int b, int c) {
 }*/
 
 
-void minMax(int *min, int *max, int dim, int vec[]) {
+void minMax (int *min, int *max, int dim, int vec[]) {
 	*min = vec[0];
 	*max = vec[0];
 
@@ -61,3 +61,21 @@ void minMax(int *min, int *max, int dim, int vec[]) {
 	}
 
 }
+
+void minMaxMatrix(int *min, int *max, int dim, int *vec) {
+	*min = vec[0];
+	*max = vec[0];
+
+	for (int i = 0; i < dim; ++i) {
+		if (*vec > *max){
+			*max = *vec;
+		}
+		if (*vec < *min){
+			*min = *vec;
+		}
+
+		vec++;
+	}
+
+}
+

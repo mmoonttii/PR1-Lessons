@@ -8,4 +8,5 @@ add_executable(lez11_0712
 		subroutines.c
 		Esercizi/es1.c
 		Esercizi/es2.c
-		Esercizi/es3.c)
+		Esercizi/es3.c
+		Esercizi/es4.c)
