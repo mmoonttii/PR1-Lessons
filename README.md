@@ -2,3 +2,10 @@
 Code from PR1 Lessons - UNICA
 
 Code in this repo is notes and exercises from lessons of the PR1 - Module II (Lab.) Computer Science - Course at UniCa
+
+### Test 1 [02.11.23]
+
+- 
+-
+-
+
