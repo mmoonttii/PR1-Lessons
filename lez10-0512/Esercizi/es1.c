@@ -36,7 +36,7 @@ typedef enum {S, M, L, XL, XXL, XXXL} Taglia;
 Esame acquisisciEsame();
 void stampaEsame(Esame esame);
 
-int es1(){
+int main(){
 	Esame esame = acquisisciEsame();
 	stampaEsame(esame);
     return 0;
