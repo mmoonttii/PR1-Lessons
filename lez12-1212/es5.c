@@ -27,7 +27,7 @@ int main(){
 	printf("Quanti alberghi? ");
 	scanf("%d", &nAlberghi);
 	nAlberghi = abs(nAlberghi);
-	printf("Genero %d alberghi", nAlberghi);
+	printf("Genero %d alberghi\n", nAlberghi);
 
 	//Allocazione alberghi
 	alberghi = (Albergo *) calloc(nAlberghi, sizeof(Albergo));
@@ -61,8 +61,7 @@ void acquisisciAlbergo(Albergo *albergo) {
 	scanf("%f", &albergo->prezzo);
 
 	printf("Località: ");
-	scanf("%[^\n]31s", albergo->localita);
-
+	scanf(" %[^\n]31s", albergo->localita);
 }
 
 void printAlbergo(Albergo *albergo) {
@@ -72,6 +71,5 @@ void printAlbergo(Albergo *albergo) {
 		   "\n\tPrezzo per notte: %.2f"
 		   "\n\tLocalità: %s",
 		   albergo->numeroStanze, albergo->prezzo, albergo->localita);
-
 }
 
