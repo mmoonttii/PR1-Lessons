@@ -3,4 +3,7 @@ project(lez12_1212 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(lez12_1212 main.c)
+add_executable(lez12_1212
+#		es2.c
+		matrici.c
+		matrici2.c)
