@@ -7,4 +7,5 @@ add_executable(lez12_1212
 #		es2.c
 #		matrici.c
 #		matrici2.c
-		es5.c)
+#		es5.c
+		es9-10.c)
