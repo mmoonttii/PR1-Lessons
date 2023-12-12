@@ -6,4 +6,5 @@ set(CMAKE_C_STANDARD 99)
 add_executable(lez12_1212
 #		es2.c
 		matrici.c
-		matrici2.c)
+		matrici2.c
+		es5.c)
