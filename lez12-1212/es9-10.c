@@ -15,7 +15,7 @@ int **creaMatriceDinamica(int r, int c);
 void popolaMatrice(int r, int c, int **matrice);
 void stampaMatrice(int r, int c, int **matrice);
 
-int main(){
+int main() {
 
 	srand(time(NULL));
 
