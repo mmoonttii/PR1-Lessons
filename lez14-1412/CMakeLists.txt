@@ -5,6 +5,8 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(lez14_1412
 		esercizi.c
+		main.c
+		esercizi.h
 #		ricorsione.c
 #		liste.c
 )

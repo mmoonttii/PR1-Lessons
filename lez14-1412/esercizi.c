@@ -1,58 +1,9 @@
-/*  Scrivere una funz che inserisca un nodo in testa alla lista e
-	utilizzarla per inserire una lista di numeri interi positivi inseriti dall'utente
-	L'acquisizione termoina quando il valore inserito è negativo
-*/
-
-#include <stdio.h>
-#include <stdlib.h>
-
-struct nodo{
-	int info;
-	struct nodo *next;
-};
-
-typedef struct nodo Nodo;
-
-Nodo *aggiungiNodoInTesta(Nodo *lista);
-Nodo *eliminaLista(Nodo *lista);
-Nodo *cercaInLista(Nodo *lista, int num);
-
-int main(){
-
-	Nodo *lista = NULL;
-	Nodo *found = NULL;
-
-	int in;
-
-	do {
-		printf("\nInserisci numero: ");
-		scanf("%d",&in);
-
-		if (in > 0) {
-			lista = aggiungiNodoInTesta(lista); // Oppure aggiungiamo un parametro e lo usiamo per inizializzare il campo
-			lista->info = in;
-		}
-	} while (in > 0);
-
-	printf("==RICERCA==\n"
-		   "Quale numero vuoi cercare?");
-	scanf("%d",&in);
-
-	found = cercaInLista(lista, in);
-
-	if (found == NULL) {
-		printf("il numero %d non è stato trovato", in);
-	} else {
-		printf("Il numero %d è stato trovato", found->info);
-	}
-
-	eliminaLista(lista);
-	// non c'è bisogno di free(found), perchè tanto sarà liberato dall'elimina lista prima o poi
-
-    return 0;
-}
+#include "esercizi.h"
 
 // === ESERCIZIO 1 ===
+/*  Scrivere una funzione che inserisca un nodo in testa alla lista. Utilizzare la funzione per popolare una lista
+	di numeri interi positivi inseriti dall'utente. L'acquisizione termina quando il valore inserito è negativo.
+ */
 Nodo *aggiungiNodoInTesta(Nodo *lista) {
 
 	Nodo *newHead = NULL;
@@ -66,8 +17,32 @@ Nodo *aggiungiNodoInTesta(Nodo *lista) {
 	return newHead;
 }
 
-// === ESERCIZIO 4 ===
+// === ESERCIZIO 2 ===
+/*  Scrivere una funzione che permetta di stampare gli elementi di una lista
+ */
+void stampaLista(Nodo *lista) {
+	Nodo *head = lista;
+	int i = 0;
+	printf("=== CONTENUTO LISTA ===",);
+	while (head != NULL){
+		printf("[%d]: %d",i, head->info);
+		head = head->next;
 
+		i++;
+	}
+}
+
+
+void stampaListaRicorsiva(Nodo *lista) {
+	if (lista != NULL) {
+		printf("%d\t",lista->info);
+		stampaListaRicorsiva(lista->next);
+	}
+}
+
+// === ESERCIZIO 4 ===
+/*  Scrivere una funzione che effettui la ricerca di un elemento all'interno di una lista.
+ */
 Nodo *cercaInLista(Nodo *lista, int num) {
 	Nodo *looking = NULL,
 	     *testa = lista;
@@ -84,6 +59,32 @@ Nodo *cercaInLista(Nodo *lista, int num) {
 	return looking;
 }
 
+// === ESERCIZIO 6 ===
+/*  Scrivere una funzione che permetta l'inserimento di un nodo all'interno di una lista. Il nodo deve essere
+	inserito nella posizione successiva ad un nodo già presente nella lista e passato come parametro
+ */
+Nodo *aggiungiInMezzo(Nodo *nodo) {
+
+	Nodo *aux = NULL,
+		 *new = NULL;
+
+	aux = nodo->next;
+
+	new = (Nodo *)malloc(sizeof(Nodo));
+	if (new == NULL) exit(-1);
+
+	nodo->next = new;
+
+	new->info = 0;
+	new->next = aux;
+
+	return new;
+}
+
+// === ELIMINA LISTA ===
+/*  La memoria occupata dagli elementi della lista (compresi i puntatori che puntano a elementi della lista) viene
+ * deallocata
+ */
 Nodo *eliminaLista(Nodo *lista) {
 	Nodo *next = NULL;
 
@@ -95,4 +96,6 @@ Nodo *eliminaLista(Nodo *lista) {
 
 	return lista;
 }
+
+
 
