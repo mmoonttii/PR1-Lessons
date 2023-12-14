@@ -7,14 +7,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 #define N 5
 #define MIN -20
 #define MAX 30
 
 void popolaArr(int dim, int arr[], int min, int max);
-
 void invertiArr(int dim, int arr[], int inverted[]);
+bool palindromo(int dim, int *arr);
 
 int main(){
 
@@ -32,6 +33,15 @@ int main(){
 		printf("%d\t%d\n", v[j], i[j]);
 	}
 
+	for (int j = 0; j < N; ++j) {
+		printf("\n==Palindromo check==\n"
+			   "Inserisici a[%d]", j);
+		scanf("%d", &v[j]);
+	}
+
+	bool pal = palindromo(N, v);
+	printf("\nPalindromo: %d", pal);
+
     return 0;
 }
 
@@ -48,4 +58,19 @@ void invertiArr(int dim, int *arr, int *inverted) {
 	}
 
 }
+
+bool palindromo(int dim, int *arr) {
+	bool check = true;
+
+	int i = 0;
+
+	do {
+		check = arr[dim - i - 1] == arr[i];
+		i++;
+	} while (check && i < dim);
+
+	return check;
+}
+
+
 

@@ -1,3 +1,4 @@
+
 /**	Definire una struttura per la modellazione dei dati anagrafici di uno studente (nome, cognome, data di nascita etc),
  * 	quindi creare e popolare un array di studenti.
  * 	Aggiungere una seconda struttura per la modellazione dei risultati di una sessione d’esame che contiene la data,
@@ -14,49 +15,7 @@
  * 	Testare le varie funzioni e procedure dal main.
  */
 
-#include <stdio.h>
-
-#define LEN 30
-#define DIM 5
-
-typedef struct {
-	int giorno;
-	int mese;
-	int anno;
-} Data;
-
-typedef struct {
-	char nome[LEN + 1];
-	char cognome[LEN + 1];
-	Data dataNascita;
-} Studente;
-
-typedef struct {
-	Data dataEsame;
-	char luogoEsame[LEN + 1];
-	char nomeProf[LEN + 1];
-	int voti[DIM];
-} Esame;
-
-Data acquisisciData();
-Studente acquisisciStudente();
-void popolaArray(int dim, Studente studenti[]);
-void acquisisciEsame(int dim, Esame *esame, Studente studenti[]);
-void checkStudente(int dim, Studente studenti[]);
-int contaPositivi(int dim, Esame *esame);
-void topStudenti(int dim, Studente studenti[], Esame *esame);
-
-int main(){
-	Studente studenti[DIM];
-	Esame esame;
-
-	popolaArray(DIM, studenti);
-	acquisisciEsame(DIM, &esame, studenti);
-	checkStudente(DIM, studenti);
-	printf("Studenti positivi: %d", contaPositivi(DIM, &esame));
-	topStudenti(DIM, studenti, &esame);
-    return 0;
-}
+#include "es14.h"
 
 Data acquisisciData() {
 	Data data;
@@ -67,6 +26,7 @@ Data acquisisciData() {
 	scanf("%d", &data.mese);
 	printf("\nAnno: ");
 	scanf("%d", &data.anno);
+
 	return data;
 }
 
@@ -81,13 +41,16 @@ Studente acquisisciStudente() {
 
 	studente.dataNascita = acquisisciData();
 
+	return studente;
 }
 
 void popolaArray(int dim, Studente studenti[]) {
+
 	for (int i = 0; i < dim; ++i) {
 		printf("==Studente %d==", i);
 		studenti[i] = acquisisciStudente();
 	}
+
 }
 
 void acquisisciEsame(int dim, Esame *esame, Studente studenti[]) {
@@ -111,8 +74,8 @@ void acquisisciEsame(int dim, Esame *esame, Studente studenti[]) {
 void checkStudente(int dim, Studente studenti[]) {
 	for (int i = 0; i < dim; ++i) {
 		for (int j = 0; j < dim; ++j) {
-			if (studenti[i].nome == studenti[j].nome && studenti[i].cognome == studenti[j].cognome) {
-				printf("Studente %d è già presente, reinserire");
+			if (!strcmp(studenti[i].nome, studenti[j].nome) && !strcmp(studenti[i].cognome, studenti[j].cognome) && i != j) {
+				printf("Studente %d è già presente, reinserire", j);
 				studenti[j] = acquisisciStudente();
 			}
 		}
@@ -127,6 +90,8 @@ int contaPositivi(int dim, Esame *esame) {
 			count++;
 		}
 	}
+
+	return count;
 }
 
 void topStudenti(int dim, Studente studenti[], Esame *esame) {

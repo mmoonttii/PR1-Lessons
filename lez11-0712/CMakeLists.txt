@@ -4,8 +4,8 @@ project(lez11_0712 C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(lez11_0712
-		Esercizi/es12.c
-		#		Esercizi/es11.c
+#		Esercizi/es12-13.c
+#		Esercizi/es11.c
 #		pointers.c
 #		subroutines.c
 #		Esercizi/es1.c
@@ -15,5 +15,7 @@ add_executable(lez11_0712
 #		Esercizi/es6.c
 #		Esercizi/es8.c
 #		Esercizi/es10.c
-#		Esercizi/es14.c
-		)
+		Esercizi/es14.c
+		Esercizi/main.c
+		Esercizi/es14.h
+)
