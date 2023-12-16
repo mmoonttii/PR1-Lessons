@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 /** Il codice già fornito nel main NON DEVE ESSERE MODIFICATO IN ALCUN MODO.
  * È possibile integrare il main con tutto quello che è ritenuto opportuno senza modificare il codice già fornito.
@@ -16,6 +18,8 @@
 
 /// Definizione macro studente
 #define LEN 31
+#define MIN_GOAL 0
+#define MAX_GOAL 35
 
 /// Fine definizione macro studente
 
@@ -39,12 +43,19 @@ typedef struct {
 /** FINE ESERCIZIO 1 */
 
 /// Dichiarazione subroutine studente
+Calciatore acquisisciCalciatore();  // Es 2
+int randRange(int min, int max);
+Calciatore *acquisisciCalciatori(int n);    // Es 3
 
+void stampaGiocatori(Calciatore *squadra, int n);
 
 /// Fine altre dichiarazioni studente
 
+
+
 int main()
 {
+	srand(time(NULL));
 
     Calciatore *squadra = NULL;
     int nCalciatori = 0;
@@ -79,7 +90,7 @@ int main()
  * - i gol realizzati devono essere generati casualmente e compresi tra 0 e 35 (estremi inclusi);
  **/
 
-Calciatore acquisisciCalciatore(int min) {
+Calciatore acquisisciCalciatore() {
 	Calciatore calciatore;
 	bool flag = true;
 
@@ -139,11 +150,18 @@ Calciatore acquisisciCalciatore(int min) {
 		}
 	} while (flag);
 
-	calciatore.goal = randRange(min, max);
+	calciatore.goal = randRange(MIN_GOAL, MAX_GOAL); // Genero numero di goals in una subroutine
 	printf("Goals: %d", calciatore.goal);
 }
 
+int randRange(int min, int max){
+	int random;
 
+	// Limito l'output di rand() tra un minimo e un massimo passato in input
+	random = min + rand() % (max - min + 1);
+
+	return random;
+}
 
 /** FINE ESERCIZIO 2 */
 
@@ -151,7 +169,23 @@ Calciatore acquisisciCalciatore(int min) {
  * Scrivere una subroutine 'acquisisciCalciatori' che si occupa di allocare dinamicamente un array di N calciatori, con
  * N passato come parametro, e di popolarlo avvalendosi della subroutine 'acquisisciCalciatore'.
  **/
-//codice studente...
+
+Calciatore *acquisisciCalciatori(int n) {
+	Calciatore *calciatore = NULL;
+
+	// calloc() alloca uno spazio di memoria grande n spazi di dimensione sizeof(Calciatore)
+	calciatore = (Calciatore *)calloc(n, sizeof(Calciatore));
+	// Il programma esce in caso non si abbia a disposizione abbastanza spazio per allocare lo spazio necessario
+	if (calciatore == NULL) exit(-1);
+
+	// Ciclo attraverso l'array e assegno la struttura
+	for (int i = 0; i < n; ++i) {
+		calciatore[n] = acquisisciCalciatore();
+	}
+}
+
+
+
 /** FINE ESERCIZIO 3 */
 
 /** === ESERCIZIO 4 [5pt] ==========================================================================================
@@ -159,7 +193,12 @@ Calciatore acquisisciCalciatore(int min) {
  * di giocatori passato come parametro.
  * BONUS: è possibile utilizzare subroutine ausiliarie per suddividere meglio le stampe.
  **/
-//codice studente...
+void stampaGiocatori(Calciatore *squadra, int n) {
+	for (int i = 0; i < n; ++i) {
+		printf("\n===GIOCATORE %d===", n);
+
+	}
+}
 /** FINE ESERCIZIO 4 */
 
 /** === ESERCIZIO 5 [3pt] ==========================================================================================
