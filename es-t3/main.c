@@ -20,6 +20,7 @@
 #define LEN 31
 #define MIN_GOAL 0
 #define MAX_GOAL 35
+#define NUM_RUOLI 4
 
 /// Fine definizione macro studente
 
@@ -47,8 +48,12 @@ Calciatore acquisisciCalciatore();  // Es 2
 int randRange(int min, int max);
 Calciatore *acquisisciCalciatori(int n);    // Es 3
 
-void stampaGiocatori(Calciatore *squadra, int n);
+void stampaCalciatori(Calciatore *squadra, int n);  // Es 4
+void stampaRuolo(Ruolo ruolo);
 
+void selezioneAllStar(Calciatore *calciatore); // Es 5
+
+void capocannonieriAllStar(Calciatore *squadra, int n); // Es 6
 /// Fine altre dichiarazioni studente
 
 
@@ -71,9 +76,10 @@ int main()
     squadra = acquisisciCalciatori(nCalciatori);
     stampaCalciatori(squadra, nCalciatori);
 
+
     //selezione all star
     capocannonieriAllStar(squadra, nCalciatori);
-    stampaGiocatori(squadra, nCalciatori);
+    stampaCalciatori(squadra, nCalciatori);
 
     return 0;
 
@@ -184,8 +190,6 @@ Calciatore *acquisisciCalciatori(int n) {
 	}
 }
 
-
-
 /** FINE ESERCIZIO 3 */
 
 /** === ESERCIZIO 4 [5pt] ==========================================================================================
@@ -193,10 +197,35 @@ Calciatore *acquisisciCalciatori(int n) {
  * di giocatori passato come parametro.
  * BONUS: è possibile utilizzare subroutine ausiliarie per suddividere meglio le stampe.
  **/
-void stampaGiocatori(Calciatore *squadra, int n) {
+void stampaCalciatori(Calciatore *squadra, int n) {
 	for (int i = 0; i < n; ++i) {
-		printf("\n===GIOCATORE %d===", n);
+		printf("\n===GIOCATORE %d==="
+			   "\nCognome: %s"
+			   "\nSquadra: %s"
+			   "\nNumero: %d",
+			   i, squadra[i].cognome, squadra[i].squadra, squadra[i].numero);
 
+		stampaRuolo(squadra[i].ruolo);
+
+		printf("\nGoals: %d", squadra[i].goal);
+	}
+}
+
+void stampaRuolo(Ruolo ruolo) {
+	printf("\nRuolo:");
+	switch (ruolo) {
+		case PORTIERE:
+			printf("Portiere");
+			break;
+		case DIFENSORE:
+			printf("Difensore");
+			break;
+		case CENTROCAMPISTA:
+			printf("Centrocampista");
+			break;
+		case ATTACCANTE:
+			printf("Attaccante");
+			break;
 	}
 }
 /** FINE ESERCIZIO 4 */
@@ -204,12 +233,22 @@ void stampaGiocatori(Calciatore *squadra, int n) {
 /** === ESERCIZIO 5 [3pt] ==========================================================================================
  * Scrivere una subroutine 'selezioneAllStar' che modifichi la squadra di un calciatore e la imposti a "ALL STAR"
  **/
-//codice studente...
+
+void selezioneAllStar(Calciatore *calciatore){
+
+	strcpy(calciatore->squadra, "ALL STAR");
+
+}
+
 /** FINE ESERCIZIO 5 */
 
 /** === ESERCIZIO 6 [6pt] ==========================================================================================
  * Scrivere una subroutine 'capocannonieriAllStar' che, dopo aver individuato i calciatori con il maggior numero di gol
  * realizzati per ogni ruolo, imposti la loro squadra a "ALL STAR" sfruttando la subroutine 'selezioneAllStar'.
  **/
-//codice studente...
+
+void capocannonieriAllStar(Calciatore *squadra, int n){
+
+}
+
 /** FINE ESERCIZIO 6 */
