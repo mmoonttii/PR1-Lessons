@@ -64,10 +64,9 @@ int main()
 {
     // dichiarazione variabili
 
-	// Inserito studente
-	srand(time(NULL));
+	srand(time(NULL)); 	// Inserito studente: init seed random
 
-    SerieTV *catalogo = NULL;
+	SerieTV *catalogo = NULL;
     int nSerie = 0;
 
     do {
@@ -85,6 +84,7 @@ int main()
     premiazioneEmmy(catalogo, nSerie);
     stampaCatalogoSerieTv(catalogo, nSerie);
 
+	// Inserito studente: Deallocazione memoria
 	if (catalogo != NULL){
 		free(catalogo);
 		catalogo = NULL;
@@ -190,7 +190,6 @@ int randRange(int min, int max){
  * Scrivere una subroutine 'acquisisciCatalogoSerieTv' che si occupa di allocare dinamicamente un array di N serie tv, con
  * N passato come parametro, e di popolarlo avvalendosi della subroutine 'acquisisciSerieTv'.
  **/
-
 SerieTV *acquisisciCatalogoSerieTv(int nSerie){
 	SerieTV *catalogo = NULL;
 
@@ -212,7 +211,6 @@ SerieTV *acquisisciCatalogoSerieTv(int nSerie){
  * di serie tv passato come parametro.
  * BONUS: è possibile utilizzare subroutine ausiliarie per suddividere meglio le stampe.
  **/
-
 void stampaCatalogoSerieTv(SerieTV *catalogo, int nSerie){
 	printf("\n\n===CATALOGO SERIE===\n");
 	for (int i = 0; i < nSerie; ++i) {
@@ -268,7 +266,6 @@ void stampaGenere(Genere genere){
  * Scrivere una subroutine 'selezioneEmmy' che modifichi la il titolo della serie tv passata come parametro aggiungendo
  * la stringa "EMMY" all'inizio del titolo.
  * Assicurarvi che la stringa finale non superi i 32 caratteri. Nel caso in cui superi i 32 caratteri non modificarev la stringa
- *
  **/
 void selezioneEmmy(SerieTV *serieTv) {
 	char emmy[LEN_STR + 1] = EMMY;
@@ -286,25 +283,30 @@ void selezioneEmmy(SerieTV *serieTv) {
  * il titolo "EMMY" sfruttando la subroutine selezioneEmmy
  **/
 void premiazioneEmmy(SerieTV *catalogo, int nSerie) {
-	int maxVal[THRILLER + 1] = {}; // L'array maxVal contiene, per ogni genere, l'indice della serie con valutazione più alta
+	int premiata[THRILLER + 1] = {}; // L'array premiata contiene, per ogni genere, l'indice della serie con valutazione più alta
+
+	for (int i = 0; i <= THRILLER; ++i) {
+		premiata[i] = -1; // Inizializzo l'array a un valore non valido
+	}
 
 	for (int g = 0; g <= THRILLER; ++g) {  // Per ogni genere
+
 		for (int i = 0; i < nSerie; ++i) { // Ciclo il catalogo
+
 			if (catalogo[i].genere == g) { // Se il genere di questa serie è il genere che stiamo controllando
-				if (catalogo[i].valutazione > catalogo[maxVal[g]].valutazione) {
+
+				if (catalogo[i].valutazione > catalogo[premiata[g]].valutazione) {
 				// e se la valutazione di questa serie è maggiore della valutazione della serie in maxVal
-					maxVal[g] = i; // Allora questa serie prende il posto come serie migliore di tale genere
+					premiata[g] = i; // Allora questa serie prende il posto come serie migliore di tale genere
 				}
 			}
 		}
 	}
 
 	for (int g = 0; g < THRILLER + 1; ++g) { // Ciclo l'array che contiene le serie con la miglior valutazione
-		selezioneEmmy(&catalogo[maxVal[g]]);
+		if (premiata[g] != -1) // Controllo che l'indice sia valido
+			selezioneEmmy(&catalogo[premiata[g]]);
 	}
 }
 
 /** FINE ESERCIZIO 6 */
-
-
-
