@@ -232,6 +232,7 @@ void stampaSerie(SerieTV *serieTv){
 
 void stampaGenere(Genere genere){
 	//  stampaGenere(genere) preso il valore dell'enumerazione Genere stampa il genere corrispondente
+	/*
 	switch (genere) {
 		case AZIONE:
 			printf("\tGenere: azione\n");
@@ -257,6 +258,18 @@ void stampaGenere(Genere genere){
 		default:
 			printf("Errore nella stampa del genere\n");
 			break;
+	}
+	 */
+	char nomiGeneri[THRILLER + 1][LEN_STR + 1] = {
+			"azione",
+			"commedia",
+			"documentario",
+			"drammatico",
+			"horror",
+			"romantico",
+			"thriller"};
+
+	printf("\tGenere: %s", nomiGeneri[genere]);
 	}
 }
 

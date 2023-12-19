@@ -248,7 +248,30 @@ void selezioneAllStar(Calciatore *calciatore){
  **/
 
 void capocannonieriAllStar(Calciatore *squadra, int n){
+	int stars[ATTACCANTE + 1] = {}; // L'array stars contiene, per ogni genere, l'indice del giocatore con goal più alta
 
+	for (int i = 0; i <= ATTACCANTE; ++i) {
+		stars[i] = -1; // Inizializzo l'array a un valore non valido
+	}
+
+	for (int g = 0; g <= ATTACCANTE; ++g) {  // Per ogni ruolo
+
+		for (int i = 0; i < n; ++i) { // Ciclo la squadra
+
+			if (squadra[i].ruolo == g) { // Se il ruolo di questo giocatore è il ruolo che stiamo controllando
+
+				if (squadra[i].goal > squadra[stars[g]].goal) {
+					// e se i goal di questo giocatore è maggiore dei goal del giocatore in stars
+					stars[g] = i; // Allora questo giocatore prende il posto come giocatore migliore di tale ruolo
+				}
+			}
+		}
+	}
+
+	for (int g = 0; g < ATTACCANTE + 1; ++g) { // Ciclo l'array che contiene i giocatori con più goal
+		if (stars[g] != -1) // Controllo che l'indice sia valido
+			selezioneAllStar(&squadra[stars[g]]);
+	}
 }
 
 /** FINE ESERCIZIO 6 */
