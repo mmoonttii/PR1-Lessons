@@ -9,6 +9,7 @@
  * - AZIONE, COMMEDIA, DOCUMENTARIO, DRAMMATICO, HORROR, ROMANTICO, THRILLER.
  * Definire, poi, una struttura SerieTv avente come campi titolo, anno, numero di stagioni,numero di episodi totali, genere e la valutazione.
  */
+
 #define LEN_STR 31
 
 #define VAL_MIN 0
