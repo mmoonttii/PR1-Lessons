@@ -1,0 +1,39 @@
+iPhone 15
+A16 Bionic
+48
+
+Pixel 8
+Tensor G3
+50
+
+Samsung Galaxy S22
+Exynos 2200
+64
+
+Huawei P50
+Kirin 9000
+108
+
+OnePlus 10
+Snapdragon 8cx
+64
+
+Xiaomi Mi 12
+Snapdragon 8 Gen 1
+108
+
+Oppo Find X5
+MediaTek Dimensity 9000
+50
+
+Sony Xperia 5 IV
+Qualcomm Snapdragon 8cx
+12
+
+LG V50s ThinQ
+Qualcomm Snapdragon 855
+12
+
+Google Pixel 7
+Tensor G2
+50
