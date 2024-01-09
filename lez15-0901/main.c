@@ -13,7 +13,8 @@ typedef struct smartphone{
 Smartphone *aggiungiInCoda(Smartphone *lista, Smartphone new);
 Smartphone *deallocaLista(Smartphone *lista);
 void stampaLista(Smartphone *lista);
-Smartphone *rimuoviElementoN(Smartphone *lista, int n);
+Smartphone *estraiDaLista(Smartphone *lista, int pos);
+Smartphone *inserisciInTesta(Smartphone *lista, Smartphone *newTesta);
 
 int main() {
 	Smartphone sp;
@@ -97,46 +98,32 @@ Smartphone *deallocaLista(Smartphone *lista) {
 }
 
 void stampaLista(Smartphone *lista){
-	Smartphone *head = lista;
 
-	while (head != NULL){
+	while (lista != NULL){
 		printf("\nNome: %s"
 			   "\nCpu: %s"
 			   "\nMp: %d\n",
-			   head->nome, head->cpu, head->mp);
+			   lista->nome, lista->cpu, lista->mp);
 
-		head = head->next;
+		lista = lista->next;
 	}
 }
 
-Smartphone *rimuoviElementoN(Smartphone *lista, int n){
-	Smartphone *head = lista;
-	Smartphone *deleted = NULL;
-	Smartphone *aux = NULL;
+Smartphone *estraiDaLista(Smartphone *lista, int pos){
+	Smartphone *prev = lista;
+	Smartphone *extracted = NULL;
 
-	for (int i = 0; i < n - 1; ++i) {
-		head = head->next;
+	for (int i = 0; i < pos - 1; ++i) {
+		prev = prev->next;
 	}
-	deleted = head->next;
-	aux = deleted->next;
-	head->next = aux;
-	free(deleted);
-	return lista;
+	extracted = prev->next;
+	prev->next = extracted->next;
+	extracted->next = NULL;
+	return extracted;
 }
 
-Smartphone *spostaInTesta(Smartphone *lista, int n){
-	Smartphone *head = lista;
-	Smartphone *moving = NULL;
-	Smartphone *aux = NULL;
+Smartphone *inserisciInTesta(Smartphone *lista, Smartphone *newTesta){
 
-	for (int i = 0; i < n - 1; ++i) {
-		head = head->next;
-	}
-
-	moving = head->next;
-	aux = moving->next;
-	head->next = aux;
-	moving->next = lista;
-
-	return moving;
+	newTesta->next = lista;
+	return newTesta;
 }
