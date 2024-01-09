@@ -127,3 +127,20 @@ Smartphone *inserisciInTesta(Smartphone *lista, Smartphone *newTesta){
 	newTesta->next = lista;
 	return newTesta;
 }
+
+void scriviSmartphone(Smartphone *lista){
+	FILE *file = NULL;
+
+	file = fopen("../smartphone_edit.txt", "w");
+	if (file == NULL) exit(-1);
+
+	while (lista != NULL){
+		fprintf(file, "Nome: %s\n", lista->nome);
+		fprintf(file, "Cpu: %s\n", lista->cpu);
+		fprintf(file, "Mp: %d\n\n", lista->mp);
+
+		lista = lista->next;
+	}
+
+	fclose(file);
+}
